@@ -36,19 +36,20 @@ Challenge:
 
 
 Challenge:
-*We've created a database for a friend networking site, with a table storing data on each person, a table on each person's hobbies, and a table of friend connections between the people. In this first step, use a JOIN to display a table showing people's names with their hobbies.*
+We've created a database for a friend networking site, with a table storing data on each person, a table on each person's hobbies, and a table of friend connections between the people. In this first step, use a JOIN to display a table showing people's names with their hobbies.
 		SELECT p.fullname,
 			h.name
 		FROM persons p
 			JOIN hobbies h
-       				ON p.id = h.person_id;
-
-*Now, use another SELECT with a JOIN to show the names of each pair of friends, based on the data in the friends table.*
+				ON p.id = h.person_id;
+Now, use another SELECT with a JOIN to show the names of each pair of friends, based on the data in the friends table.
 		SELECT a.fullname, b.fullname
 		FROM friends
 			JOIN persons a
 				ON a.id = friends.person1_id
 			JOIN persons b
-        			ON b.id = friends.person2_id;
+				ON b.id = friends.person2_id;
+![image](https://github.com/CourtneyOaks/BreakIntoTech_SQL/assets/102244119/fedc4053-7888-4e63-9347-48116bbe4b49)
+
 
 
