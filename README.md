@@ -31,6 +31,20 @@ Use a JOIN to display a table showing people's names with their hobbies.
 ![Screenshot 2023-06-28 at 11 01 35 AM](https://github.com/CourtneyOaks/BreakIntoTech_SQL/assets/102244119/889c3103-5e09-428a-8969-aa988d9ae2b2)
 
 Use another SELECT with a JOIN to show the names of each pair of friends, based on the data in the friends table.
-![Screenshot 2023-06-28 at 11 02 15 AM](https://github.com/CourtneyOaks/BreakIntoTech_SQL/assets/102244119/4ff44e68-633f-43dd-a658-6ad2563ee70e)
+![Screenshot 2023-06-28 at 1 15 40 PM](https://github.com/CourtneyOaks/BreakIntoTech_SQL/assets/102244119/bb3b9bc3-2261-4026-a7c0-0f488e62146c)
+
+
+Challenge:
+Query this store database so that you get back the consumer ID plus the total spent for the 2022 year. 
+Make sure to list them in descending order so that you get the "top spender" at the top of your results.
+![Screenshot 2023-06-28 at 1 08 34 PM](https://github.com/CourtneyOaks/BreakIntoTech_SQL/assets/102244119/d0c3d216-6ef7-4776-94f6-13d83748729c)
+
+Create another query that shows all of the customers that reside in San Diego, CA with name, city, and customer ID listed.
+To do this, you need to JOIN the customer_purchases and customer_location tables.
+![Screenshot 2023-06-28 at 1 11 21 PM](https://github.com/CourtneyOaks/BreakIntoTech_SQL/assets/102244119/18b95fd2-b691-47db-a236-d5a791e4f0b7)
+
+Create one more query to see which purchases are coming from the residents of the Estates on the Hills complex. 
+The store owners want to see how many residents of this new complex are now members of their store's shopping membership.
+![Screenshot 2023-06-28 at 1 14 14 PM](https://github.com/CourtneyOaks/BreakIntoTech_SQL/assets/102244119/c3e00f46-225f-4d57-a014-89a793d2321a)
 
        
