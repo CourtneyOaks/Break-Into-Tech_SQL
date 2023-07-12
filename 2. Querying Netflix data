@@ -1,4 +1,4 @@
-# This project reveals insights from TV and Movie content on Netflix which utilized data from the following two Netflix data sets:
+This project reveals insights from TV and Movie content on Netflix which utilized data from the following two Netflix data sets:
 
 CREATE TABLE netflix_titles_info
     ("show_id" varchar(5), "type" varchar(7), "title" varchar(58), "country" varchar(74), "date_added" timestamp, "release_year" int, "rating" varchar(5), "duration" varchar(9), "listed_in" varchar(74))
