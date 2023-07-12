@@ -1,7 +1,7 @@
 Break Into Tech - SQL queries
 
 Challenge:
-We've created a database to track student grades, with their name, number grade, and what percentage of activities they've completed. 
+We've created a database to track student grades, with their name, number of grade, and what percentage of activities they've completed. 
 In this first step, select all of the rows, and display the name, number_grade, and percent_completed, which you can compute by multiplying and rounding the fraction_completed column.
 SELECT name,
 	number_grade, 
