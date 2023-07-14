@@ -1,0 +1,80 @@
+-- Explore the tables you are going to be working with
+SELECT *
+FROM BIT_DB.customers 
+LIMIT 100;
+
+SELECT * 
+FROM BIT_DB.JanSales
+LIMIT 100;
+
+SELECT * 
+FROM BIT_DB.customers
+WHERE order_id IS NOT NULL
+    and order_Id <> '';
+
+SELECT * 
+FROM BIT_DB.customers
+WHERE length(order_id) = 6
+AND order_id <> 'Order ID';
+
+-- Create your own SQL queries to answer the following questions:
+
+-- How many orders were placed in January? 
+-- Remember to filter out the blank and incorrect order IDs.
+SELECT COUNT(orderid)
+FROM BIT_DB.JanSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID';
+
+-- How many of those orders were for an iPhone?
+SELECT COUNT(orderid)
+FROM BIT_DB.JanSales
+WHERE Product like '%iphone%'
+    AND length(orderid) = 6
+    AND orderid <> 'Order ID';
+
+-- Select the customer account numbers for all the orders that were placed in February.
+-- Have your results reflect the customer account number, order date and product purchased.
+SELECT 
+    acctnum, 
+    orderdate, 
+    product
+FROM BIT_DB.customers c
+    JOIN BIT_DB.FebSales f
+    on c.order_id = f.orderid
+WHERE length(orderid) = 6
+    AND orderid <> 'Order ID';
+    
+-- Which product was the cheapest one sold in January, and what was the price?
+SELECT 
+    MIN(price) AS price,
+    product AS lowest_priced_product
+FROM BIT_DB.JanSales;
+
+-- What is the total revenue for each product sold in January? (Revenue can be calculated using the number of products sold and the price of the products).
+SELECT 
+    SUM(quantity) * price AS total_revenue,
+    product
+FROM BIT_DB.JanSales
+GROUP BY product;
+
+-- Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+SELECT
+sum(quantity), 
+product, 
+sum(quantity)*price as revenue,
+location
+FROM BIT_DB.FebSales 
+WHERE location like '548 Lincoln St%'
+GROUP BY product;
+
+-- How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?
+SELECT
+    COUNT(DISTINCT cus.acctnum), 
+    AVG(quantity*price)
+FROM BIT_DB.FebSales Feb
+LEFT JOIN BIT_DB.customers cus
+ON Feb.orderid = cus.order_id
+WHERE Feb.quantity > 2
+    AND length(orderid) = 6 
+    AND orderid <> 'Order ID';
