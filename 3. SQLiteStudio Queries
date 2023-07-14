@@ -1,4 +1,4 @@
--- Explore the tables you are going to be working with
+-- Explore the tables you are going to be working with 
 SELECT *
 FROM BIT_DB.customers 
 LIMIT 100;
