@@ -18,9 +18,7 @@ WHERE length(order_id) = 6
 AND order_id <> 'Order ID';
 
 -- Create your own SQL queries to answer the following questions:
-
--- How many orders were placed in January? 
--- Remember to filter out the blank and incorrect order IDs.
+-- How many orders were placed in January? Remember to filter out the blank and incorrect order IDs.
 SELECT COUNT(orderid)
 FROM BIT_DB.JanSales
 WHERE length(orderid) = 6
@@ -33,7 +31,8 @@ WHERE Product like '%iphone%'
     AND length(orderid) = 6
     AND orderid <> 'Order ID';
 
--- Select the customer account numbers for all the orders that were placed in February.
+
+-- Select the customer account numbers for all the orders that were placed in February. 
 -- Have your results reflect the customer account number, order date and product purchased.
 SELECT 
     acctnum, 
@@ -78,3 +77,24 @@ ON Feb.orderid = cus.order_id
 WHERE Feb.quantity > 2
     AND length(orderid) = 6 
     AND orderid <> 'Order ID';
+
+-- Using dates, 'like' and '%' to query data
+SELECT orderdate
+FROM BIT_DB.FebSales
+WHERE orderdate between '02/13/19 00:00' and '02/18/19 00:00';
+
+SELECT location
+FROM BIT_DB.FebSales
+WHERE orderdate = '02/18/19 1:35';
+
+SELECT sum(quantity)
+FROM BIT_DB.FebSales
+WHERE orderdate like '02/18/19%';
+
+-- List all the products sold in Los Angeles in February, and include product name, location and how many of each were sold.
+SELECT Product,
+    Location,
+    SUM(quantity)
+FROM BIT_DB.FebSales
+WHERE location like '%Los Angeles%'
+GROUP by Product;
