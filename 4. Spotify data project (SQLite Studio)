@@ -1,4 +1,4 @@
-SPOTIFY DATASET PROJECT
+SPOTIFY DATASET TABLE CREATION AND DATA EXPLORATION
 
 -- Start by creating your table
 CREATE TABLE BIT_DB.Spotifydata (
@@ -20,3 +20,56 @@ valence decimal(4,3) NOT NULL,
 tempo decimal(6,3) NOT NULL,
 duration_ms integer NOT NULL,
 time_signature integer NOT NULL);
+
+-- Ensure the tables columns are reflecting as necessary
+SELECT * 
+FROM BIT_DB.Spotifydata;
+
+
+IMPORT THE DATA AND START EXPLORING:
+
+-- What was the most popular song in 2021?
+SELECT artist_name,
+    track_name AS song_name,
+    popularity
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC;
+
+-- What are the top 10 most popular songs? Provide the artist and song name, in order of popularity score.
+SELECT artist_name,
+    track_name AS song_name,
+    popularity
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC
+LIMIT 10;
+
+-- What 5 songs had the highest dancability score?
+SELECT artist_name,
+    track_name AS song_name,
+    danceability
+FROM BIT_DB.Spotifydata
+ORDER BY danceability DESC
+LIMIT 5;
+
+-- Let's narrow the results down to the top danceability song.
+SELECT artist_name, 
+    track_name AS song_name,
+    MAX(danceability)
+FROM BIT_DB.Spotifydata;
+
+-- What was the song with the longest duration?
+SELECT track_name AS song_name,
+    MAX(duration_ms)
+FROM BIT_DB.Spotifydata;
+
+-- What was the least loud song in 2021, based on the loudness scoring? Include song name as well as loudness score.
+SELECT track_name AS song_name,
+    MIN(loudness) AS loudness_score
+FROM BIT_DB.Spotifydata;
+
+-- Extend that same search, but show the top 10 least loud songs. Include song name as well as loudness score.
+SELECT loudness AS loudness_score, 
+    track_name AS song_name
+FROM BIT_DB.Spotifydata
+ORDER BY loudness_score ASC
+LIMIT 10;
