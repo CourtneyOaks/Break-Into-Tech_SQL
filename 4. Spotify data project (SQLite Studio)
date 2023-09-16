@@ -1,4 +1,6 @@
--- SPOTIFY DATASET PROJECT
+SPOTIFY DATASET PROJECT
+
+-- Start by creating your table
 CREATE TABLE BIT_DB.Spotifydata (
 id integer PRIMARY KEY,
 artist_name varchar NOT NULL,
